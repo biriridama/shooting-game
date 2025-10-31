@@ -13,7 +13,7 @@ export function initPlayer(canvas) {
     console.log("Player:", player);
 }
 
-export function drawPlayer(ctx){
-ctx.fillStyle = player.color;
-ctx.fillRect(player.x, player.y, player.width, player.height);
+export function drawPlayer(ctx) {
+    ctx.fillStyle = player.color;
+    ctx.fillRect(player.x, player.y, player.width, player.height);
 }
