@@ -1,3 +1,4 @@
+
 import { player, initPlayer, drawPlayer } from "./player.js";
 import { spawnEnemy, enemies, updateEnemies, drawEnemies } from "./enemies.js";
 import { handleCollisions } from "./collision.js";
@@ -12,12 +13,19 @@ const BULLET_SPEED = -5;
 
 function tryShoot() {
     bullets.push({
-        x: player.x+player.width/2 - 5,
+        x: player.x + player.width / 2 - 5,
         y: player.y,
-        width: 5,
-        height: 5,
+        width: 10,
+        height: 10,
         vy: BULLET_SPEED,
     })
+}
+
+function updateScore() {
+    const scoreBoard = document.getElementById("scoreBoard");
+    scoreBoard.innerText = `Score: ${player.score}`;
+    const lifeBoard = document.getElementById("lifeBoard");
+    lifeBoard.innerText = `Life: ${player.life}`;
 }
 
 
@@ -39,6 +47,7 @@ function update() {
     for (let i = 0; i < bullets.length; i++) {
         const bullet = bullets[i];
         bullet.y += bullet.vy;
+
         if (bullet.y < 0) {
             bullets.splice(i, 1);
         }
@@ -46,6 +55,7 @@ function update() {
     spawnEnemy(canvas);
     updateEnemies(canvas);
     handleCollisions();
+    updateScore();
 }
 
 function draw() {
@@ -60,11 +70,6 @@ function draw() {
         ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
     }
 
-    ctx.fillStyle = "red";
-    for (let i = 0; i < enemies.length; i++) {
-        const enemy = enemies[i];
-        ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
-    }
     drawEnemies(ctx);
 }
 
