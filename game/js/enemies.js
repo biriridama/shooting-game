@@ -1,5 +1,5 @@
 export const enemies = [];
-const SIZE = 50;
+const SIZE = 30;
 const enemyImage = new Image();
 enemyImage.src = "https://prod-giants-site.imagewave.pictures/ikCuV65rcCmUwLRbQ2PrwD?width=828";
 
@@ -8,7 +8,7 @@ function pushEnemies(canvas) {
   const h = SIZE;
   const x = Math.random() * (canvas.width - w);
   const y = 0;
-  const vy = 1;
+  const vy = 5;
 
   enemies.push({ x, y, width: w, height: h, vy });
 }

@@ -1,11 +1,11 @@
 const playerImage = new Image();
-playerImage.src = "https://news.ntv.co.jp/gimage/n24/articles/fc891a2304d9401fa61f576bebc30151/65051a93-c112-4b8f-a668-76946dde0a6d.JPG?w=1200";
+playerImage.src = "https://www.sponichi.co.jp/baseball/news/2025/11/23/jpeg/20251123s10001173265000p_view.webp";
 
 export const player = {
     x: 0,
     y: 0,
-    width: 30,
-    height: 30,
+    width: 60,
+    height: 60,
     color: "yellow",
     life: 3,
     score: 0,
